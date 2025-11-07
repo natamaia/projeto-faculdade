@@ -48,3 +48,6 @@ C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\refint\CadastroAcoes.dll
 C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\CadastroAcoes.pdb
 c:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\CadastroAcoes.genruntimeconfig.cache
 c:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\ref\CadastroAcoes.dll
+C:\projeto-faculdade\CadastroAcoes\bin\Debug\net8.0\CadastroAcoes.staticwebassets.endpoints.json
+C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\staticwebassets\msbuild.CadastroAcoes.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
