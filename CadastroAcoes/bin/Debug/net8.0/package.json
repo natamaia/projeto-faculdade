@@ -1,0 +1,16 @@
+{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "description": "A web application with a separate login page.",
+  "main": "public/js/main.js",
+  "scripts": {
+    "start": "live-server public",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
+      "PackagePath": "staticwebassets\\assets\\styles.css"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\App.js",
+      "PackagePath": "staticwebassets\\content\\App.js"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\login.js",
+      "PackagePath": "staticwebassets\\content\\login.js"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\login.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",
+      "PackagePath": "staticwebassets\\layouts\\Properties\\footer.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\header.html",
+      "PackagePath": "staticwebassets\\layouts\\Properties\\header.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\sidebar.html",
+      "PackagePath": "staticwebassets\\layouts\\Properties\\sidebar.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\index.html",
+      "PackagePath": "staticwebassets\\layouts\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CadastroAcoes.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CadastroAcoes.props",
+      "PackagePath": "build\\CadastroAcoes.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CadastroAcoes.props",
+      "PackagePath": "buildMultiTargeting\\CadastroAcoes.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CadastroAcoes.props",
+      "PackagePath": "buildTransitive\\CadastroAcoes.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap (via unpkg) -->
+    <link href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://unpkg.com/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Local stylesheet (overrides) -->
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="card shadow-sm w-100" style="max-width:420px;">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-3">Entrar</h3>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuário</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Digite seu usuário" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha" required>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <small>Não tem conta? <a href="/layouts/Pages/register.html">Cadastre-se</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap bundle (popper) -->
+    <script src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/content/login.js"></script>
+</body>
+</html>
