@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web App</title>
-    <link rel="stylesheet" href="https://unpkg.com/your-css-library@version/dist/your-css-library.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+        <!-- Tailwind (play CDN for quick prototyping) -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Redirect root to login if not authenticated, otherwise to app home -->
+        <script>
+            (function(){
+                try {
+                    const token = localStorage.getItem('token');
+                    if (token) {
+                        window.location.href = '/app/home.html';
+                    } else {
+                        window.location.href = '/layouts/Pages/login.html';
+                    }
+                } catch (e) {
+                    // fallback: go to login
+                    window.location.href = '/layouts/Pages/login.html';
+                }
+            })();
+        </script>
+    <!-- Tailwind generated stylesheet (when built) -->
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
     <header>

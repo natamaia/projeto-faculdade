@@ -53,3 +53,4 @@ C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\refint\CadastroAcoes.dll
 C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\CadastroAcoes.pdb
 C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\CadastroAcoes.genruntimeconfig.cache
 C:\projeto-faculdade\CadastroAcoes\obj\Debug\net8.0\ref\CadastroAcoes.dll
+C:\projeto-faculdade\CadastroAcoes\bin\Debug\net8.0\package-lock.json

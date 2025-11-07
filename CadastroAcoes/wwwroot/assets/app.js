@@ -20,7 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
+    // on small screens toggle visibility; on larger toggle collapsed width
+    if (window.innerWidth < 768) {
+      sidebar.classList.toggle('hidden');
+    } else {
+      sidebar.classList.toggle('collapsed');
+    }
   });
 
   navUser.addEventListener('click', (e) => {
@@ -32,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
-    window.location.href = '/layouts/index.html';
+    window.location.href = '/layouts/Pages/login.html';
   });
 
   // user form handling (local demo only)
@@ -40,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (userForm) {
     userForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Salvar configurações não implementado no backend neste demo.');
+      if (window.showToast) showToast('Salvar configurações não implementado no backend neste demo.', 'info'); else alert('Salvar configurações não implementado no backend neste demo.');
     });
   }
 });
