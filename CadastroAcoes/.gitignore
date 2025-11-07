@@ -1,0 +1,11 @@
+# Ignore environment file with secrets
+.env
+
+# Visual Studio / Rider / VS Code defaults
+bin/
+obj/
+.vs/
+.idea/
+
+# User secrets
+secrets.json
