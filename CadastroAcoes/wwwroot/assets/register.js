@@ -14,69 +14,87 @@ document.addEventListener('DOMContentLoaded', () => {
   registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const type = typeSelect.value;
+    
+    // Core user data from the form
     const username = document.getElementById('username').value.trim();
+    const apelido = document.getElementById('apelido').value.trim(); // This is the "Apelido"
     const email = document.getElementById('email').value.trim();
-    const phone = parseInt(document.getElementById('phone').value || '0');
     const password = document.getElementById('password').value;
 
-    // client-side validations
-    if (!username || !email || !password) {
-      if (window.showToast) showToast('Preencha os campos obrigatórios', 'error'); else alert('Preencha os campos obrigatórios');
+    // --- Client-side validations ---
+    if (!apelido || !email || !password) {
+      showToast('Apelido, email e senha são obrigatórios.', 'error');
       return;
     }
     if (!/^\S+@\S+\.\S+$/.test(email)) {
-      if (window.showToast) showToast('Email inválido', 'error'); else alert('Email inválido');
+      showToast('Email inválido.', 'error');
       return;
     }
     if (password.length < 6) {
-      if (window.showToast) showToast('Senha deve ter ao menos 6 caracteres', 'error'); else alert('Senha curta');
-      return;
-    }
-    // check duplicate username locally
-    const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
-    if (existingUsers.some(u => u.username === username)) {
-      if (window.showToast) showToast('Nome de usuário já existe. Escolha outro.', 'error'); else alert('Usuário já existe');
+      showToast('A senha deve ter pelo menos 6 caracteres.', 'error');
       return;
     }
 
     try {
-      // try backend if available
-      let usedBackend = false;
+      // --- Step 1: Register the core user ---
+      const authResponse = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, apelido, email, password })
+      });
+
+      if (!authResponse.ok) {
+        const errorText = await authResponse.text();
+        showToast(`Falha no cadastro: ${errorText}`, 'error');
+        return;
+      }
+
+      const createdUser = await authResponse.json();
+
+      // --- Step 2: Register the profile (Client or Vendor) ---
+      let profileResponse;
+      const profileData = {
+        userId: createdUser.id, // Assuming the ID of the created user is returned
+        username: username,
+        email: email,
+        phoneNumber: parseInt(document.getElementById('phone').value || '0')
+      };
+
       if (type === 'client') {
-        const cfp = parseInt(document.getElementById('cpf').value || '0');
-        const address = document.getElementById('address').value;
-        const age = parseInt(document.getElementById('age').value || '0');
-
-        const body = { username, cfp, email, address, phoneNumber: phone, age, passwordHash: password };
-        try {
-          const res = await fetch('/api/clients/register', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
-          if (res.ok) usedBackend = true;
-          else { const txt = await res.text(); console.warn('Backend returned', txt || res.statusText); }
-        } catch (e) { /* ignore backend errors, fallback to local */ }
-      } else {
-        const cnpj = parseInt(document.getElementById('cnpj').value || '0');
-        const empresa = document.getElementById('empresa').value;
-        try {
-          const res = await fetch('/api/vendors/register', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ username, cnpj, email, phoneNumber: phone, empresa, passwordHash: password }) });
-          if (res.ok) usedBackend = true;
-          else { const txt = await res.text(); console.warn('Backend returned', txt || res.statusText); }
-        } catch (e) { /* ignore backend errors, fallback to local */ }
+        Object.assign(profileData, {
+          cpf: parseInt(document.getElementById('cpf').value || '0'),
+          address: document.getElementById('address').value,
+          age: parseInt(document.getElementById('age').value || '0'),
+          // fullname can be added here if needed by the backend
+        });
+        profileResponse = await fetch('/api/clients', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(profileData) });
+      
+      } else { // vendor
+        Object.assign(profileData, {
+          cnpj: parseInt(document.getElementById('cnpj').value || '0'),
+          empresa: document.getElementById('empresa').value,
+          // cep_vendor can be added here if needed
+        });
+        profileResponse = await fetch('/api/vendors', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(profileData) });
       }
 
-      if (!usedBackend) {
-        // fallback: save user locally (simple prototype)
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        users.push({ username, password });
-        localStorage.setItem('users', JSON.stringify(users));
-        if (window.showToast) showToast('Cadastro gravado localmente. Você pode fazer login agora.', 'success'); else alert('Cadastro gravado localmente. Você pode fazer login agora.');
-      } else {
-        if (window.showToast) showToast('Cadastro realizado com sucesso (backend). Você pode fazer login agora.', 'success'); else alert('Cadastro realizado com sucesso (backend). Você pode fazer login agora.');
+      if (!profileResponse.ok) {
+        const errorText = await profileResponse.text();
+        // NOTE: At this point, the user exists but profile creation failed.
+        // A real app would need a way to handle this inconsistency.
+        showToast(`Usuário criado, mas falha ao criar perfil: ${errorText}`, 'error');
+        return;
       }
 
-      window.location.href = '/layouts/Pages/login.html';
+      showToast('Cadastro realizado com sucesso! Você será redirecionado.', 'success');
+      
+      setTimeout(() => {
+        window.location.href = '/layouts/Pages/login.html';
+      }, 2000);
+
     } catch (err) {
       console.error(err);
-      alert('Erro ao cadastrar. Veja o console.');
+      showToast('Erro inesperado ao cadastrar. Verifique o console.', 'error');
     }
   });
 });

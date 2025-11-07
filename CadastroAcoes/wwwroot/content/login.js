@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function authenticateLocally(username, password) {
         // default admin as requested
-        if (username === 'admin' && password === 'userAdminPs') {
+        if (username === 'admin' && password === 'admin') {
             localStorage.setItem('token', 'local-admin');
             localStorage.setItem('username', username);
             window.location.href = '/app/home.html';
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const res = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, passwordHash: password })
+                body: JSON.stringify({ identifier: username, password: password })
             });
 
             if (!res.ok) {

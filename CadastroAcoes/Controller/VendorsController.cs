@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Model.Repository;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace Controller
 {
@@ -17,31 +15,30 @@ namespace Controller
             _repo = repo;
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] UserVendor dto)
+        [HttpPost]
+        public async Task<IActionResult> CreateVendorProfile([FromBody] CreateVendorProfileDto dto)
         {
-            if (await _repo.GetByUsernameAsync(dto.Username) != null)
-                return BadRequest("Usuário já existe");
-            if (await _repo.GetByEmailAsync(dto.Email) != null)
-                return BadRequest("Email já cadastrado");
-            if (await _repo.GetByCnpjAsync(dto.cnpj) != null)
+            if (dto.cnpj != 0 && await _repo.GetByCnpjAsync(dto.cnpj) != null)
                 return BadRequest("CNPJ já cadastrado");
 
-            using var sha = SHA256.Create();
-            var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(dto.PasswordHash)));
-
-            var user = new UserVendor
+            var userVendor = new UserVendor
             {
-                Username = dto.Username,
+                UserId = dto.UserId,
                 cnpj = dto.cnpj,
-                Email = dto.Email,
-                PhoneNumber = dto.PhoneNumber,
                 Empresa = dto.Empresa,
-                PasswordHash = hash
+                PhoneNumber = dto.PhoneNumber
             };
 
-            await _repo.CreateAsync(user);
-            return Ok();
+            await _repo.CreateAsync(userVendor);
+            return Ok(userVendor);
         }
+    }
+
+    public class CreateVendorProfileDto
+    {
+        public string UserId { get; set; } = null!;
+        public int cnpj { get; set; }
+        public string Empresa { get; set; } = null!;
+        public int PhoneNumber { get; set; }
     }
 }

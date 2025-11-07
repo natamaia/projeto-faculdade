@@ -8,13 +8,15 @@ namespace Model
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-        public string Username { get; set; } = null!;
+        
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string UserId { get; set; } = null!; // Link to the main User model
+
         public int Cfp { get; set; } = 0;
-        public string Email { get; set; } = null!;
         public string Address { get; set; } = null!;
         public int PhoneNumber { get; set; } = 0;
         public int Cep { get; set; } = 0;
-        public string PasswordHash { get; set; } = null!;
+        public int Age { get; set; } // Added Age from previous context
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

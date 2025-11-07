@@ -9,8 +9,6 @@ namespace Model.Repository
     public interface IUserVendorRepository
     {
         Task CreateAsync(UserVendor user);
-        Task<UserVendor?> GetByUsernameAsync(string username);
-        Task<UserVendor?> GetByEmailAsync(string email);
         Task<UserVendor?> GetByCnpjAsync(int cnpj);
     }
 }

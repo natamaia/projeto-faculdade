@@ -24,46 +24,72 @@ namespace Controller
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] User userDto)
+        public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-            if (await _repo.GetByUsernameAsync(userDto.Username) != null)
-                return BadRequest("Usuário já existe");
+            if (await _repo.GetByApelidoAsync(registerDto.Apelido) != null)
+                return BadRequest("Este apelido já está em uso.");
 
-            // Hash de senha simples (troque por algo mais robusto / salt)
+            if (await _repo.GetByEmailAsync(registerDto.Email) != null)
+                return BadRequest("Este email já está em uso.");
+
             using var sha = SHA256.Create();
-            var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(userDto.PasswordHash)));
+            var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)));
 
             var user = new User
             {
-                Username = userDto.Username,
-                Email = userDto.Email,
+                Username = registerDto.Username, // Mantendo Username se ainda for necessário
+                Apelido = registerDto.Apelido,
+                Email = registerDto.Email,
                 PasswordHash = hash
             };
 
             await _repo.CreateAsync(user);
-            return Ok();
+            return Ok(user);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] User loginDto)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            var user = await _repo.GetByUsernameAsync(loginDto.Username);
+            // Admin login for development
+            if (loginDto.Identifier == CadastroAcoes.TempDev.AdminConfig.Username && loginDto.Password == CadastroAcoes.TempDev.AdminConfig.Password)
+            {
+                var adminClaims = new[]
+                {
+                    new Claim(ClaimTypes.Name, "admin"),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                };
+
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                var token = new JwtSecurityToken(
+                    issuer: _config["Jwt:Issuer"],
+                    audience: _config["Jwt:Audience"],
+                    claims: adminClaims,
+                    expires: DateTime.Now.AddMinutes(30),
+                    signingCredentials: creds
+                );
+
+                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
+            }
+
+            var user = await _repo.GetByLoginIdentifierAsync(loginDto.Identifier);
             if (user == null) return Unauthorized();
 
             using var sha = SHA256.Create();
-            var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(loginDto.PasswordHash)));
+            var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password)));
             if (user.PasswordHash != hash) return Unauthorized();
 
-            var token = GenerateToken(user.Username);
+            var token = GenerateToken(user.Apelido);
             return Ok(new { token });
         }
 
-        private string GenerateToken(string username)
+        private string GenerateToken(string apelido)
         {
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, username)
+                new Claim(ClaimTypes.Name, apelido)
             };
             var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
@@ -75,5 +101,19 @@ namespace Controller
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+    }
+
+    public class LoginDto
+    {
+        public string Identifier { get; set; }
+        public string Password { get; set; }
+    }
+
+    public class RegisterDto
+    {
+        public string Username { get; set; }
+        public string Apelido { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
