@@ -43,8 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await res.json();
             if (data && data.token) {
                 localStorage.setItem('token', data.token);
-                // you can decode token or fetch user info endpoint to set role
-                window.location.href = '/layouts/index.html';
+                // save username for simple client-side checks
+                localStorage.setItem('username', username);
+                // redirect to protected home app
+                window.location.href = '/app/home.html';
             } else {
                 alert('Resposta inesperada do servidor.');
             }

@@ -1,6 +1,18 @@
 {
   "Files": [
     {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
+      "PackagePath": "staticwebassets\\app\\home.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
+      "PackagePath": "staticwebassets\\assets\\app.js"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
+      "PackagePath": "staticwebassets\\assets\\register.js"
+    },
+    {
       "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
       "PackagePath": "staticwebassets\\assets\\styles.css"
     },
@@ -15,6 +27,10 @@
     {
       "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
       "PackagePath": "staticwebassets\\layouts\\Pages\\login.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\register.html"
     },
     {
       "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",

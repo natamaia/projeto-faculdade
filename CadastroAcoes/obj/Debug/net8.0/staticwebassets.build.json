@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YCPWOxYPeMu9DLISYUmsecChC+qsgvjj1f7QrSRECPo=",
+  "Hash": "GpqTPAX2USIoslhAJ+uRme/N+A1BJGwz8oqHS0SaQeU=",
   "Source": "CadastroAcoes",
   "BasePath": "_content/CadastroAcoes",
   "Mode": "Default",
@@ -16,6 +16,69 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
+      "SourceId": "CadastroAcoes",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "BasePath": "_content/CadastroAcoes",
+      "RelativePath": "app/home#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6hj1ouw8y3",
+      "Integrity": "JpdWL97G4eLviOgDiiJSJiW33ECUFav5LQVxFECAqwM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app\\home.html"
+    },
+    {
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
+      "SourceId": "CadastroAcoes",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "BasePath": "_content/CadastroAcoes",
+      "RelativePath": "assets/app#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g6bkel31ur",
+      "Integrity": "aNiVjEqdptSNxj0tYloiJ7umyZZFvIFBOrOpQ5GYqvU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\app.js"
+    },
+    {
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
+      "SourceId": "CadastroAcoes",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "BasePath": "_content/CadastroAcoes",
+      "RelativePath": "assets/register#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zte4sbh2wc",
+      "Integrity": "6aMdQEYpOQSLxgKadZ98KUrWCE5PagdCGUrR99hJokI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\register.js"
+    },
     {
       "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
       "SourceId": "CadastroAcoes",
@@ -73,8 +136,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pfo6psc2f7",
-      "Integrity": "y1X0J2yvG+GIQuvhqcOtjsX4RD7tU0Tz125GganV5W0=",
+      "Fingerprint": "s7w3616rjd",
+      "Integrity": "2E8JsVXvxF9X3alZcnsRSStfeqVlUNcJvpEmcZuTluw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\content\\login.js"
@@ -120,6 +183,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\layouts\\Pages\\login.html"
+    },
+    {
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
+      "SourceId": "CadastroAcoes",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "BasePath": "_content/CadastroAcoes",
+      "RelativePath": "layouts/Pages/register#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3s9jz7za80",
+      "Integrity": "vRihsCyWFwDIdQ+yZUjG4wnEsMxxsWpoEC3bwXXXMUo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\layouts\\Pages\\register.html"
     },
     {
       "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",
@@ -186,6 +270,252 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "app/home.6hj1ouw8y3.html",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JpdWL97G4eLviOgDiiJSJiW33ECUFav5LQVxFECAqwM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:32:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6hj1ouw8y3"
+        },
+        {
+          "Name": "label",
+          "Value": "app/home.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JpdWL97G4eLviOgDiiJSJiW33ECUFav5LQVxFECAqwM="
+        }
+      ]
+    },
+    {
+      "Route": "app/home.html",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JpdWL97G4eLviOgDiiJSJiW33ECUFav5LQVxFECAqwM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:32:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JpdWL97G4eLviOgDiiJSJiW33ECUFav5LQVxFECAqwM="
+        }
+      ]
+    },
+    {
+      "Route": "assets/app.g6bkel31ur.js",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aNiVjEqdptSNxj0tYloiJ7umyZZFvIFBOrOpQ5GYqvU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:33:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g6bkel31ur"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/app.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aNiVjEqdptSNxj0tYloiJ7umyZZFvIFBOrOpQ5GYqvU="
+        }
+      ]
+    },
+    {
+      "Route": "assets/app.js",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aNiVjEqdptSNxj0tYloiJ7umyZZFvIFBOrOpQ5GYqvU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:33:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aNiVjEqdptSNxj0tYloiJ7umyZZFvIFBOrOpQ5GYqvU="
+        }
+      ]
+    },
+    {
+      "Route": "assets/register.js",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6aMdQEYpOQSLxgKadZ98KUrWCE5PagdCGUrR99hJokI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:32:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6aMdQEYpOQSLxgKadZ98KUrWCE5PagdCGUrR99hJokI="
+        }
+      ]
+    },
+    {
+      "Route": "assets/register.zte4sbh2wc.js",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6aMdQEYpOQSLxgKadZ98KUrWCE5PagdCGUrR99hJokI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:32:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zte4sbh2wc"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/register.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6aMdQEYpOQSLxgKadZ98KUrWCE5PagdCGUrR99hJokI="
+        }
+      ]
+    },
     {
       "Route": "assets/styles.5uf431s8iq.css",
       "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
@@ -361,7 +691,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2117"
+          "Value": "2207"
         },
         {
           "Name": "Content-Type",
@@ -369,11 +699,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"y1X0J2yvG+GIQuvhqcOtjsX4RD7tU0Tz125GganV5W0=\""
+          "Value": "\"2E8JsVXvxF9X3alZcnsRSStfeqVlUNcJvpEmcZuTluw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Nov 2025 11:53:15 GMT"
+          "Value": "Fri, 07 Nov 2025 13:31:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -383,12 +713,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-y1X0J2yvG+GIQuvhqcOtjsX4RD7tU0Tz125GganV5W0="
+          "Value": "sha256-2E8JsVXvxF9X3alZcnsRSStfeqVlUNcJvpEmcZuTluw="
         }
       ]
     },
     {
-      "Route": "content/login.pfo6psc2f7.js",
+      "Route": "content/login.s7w3616rjd.js",
       "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\login.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -398,7 +728,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2117"
+          "Value": "2207"
         },
         {
           "Name": "Content-Type",
@@ -406,11 +736,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"y1X0J2yvG+GIQuvhqcOtjsX4RD7tU0Tz125GganV5W0=\""
+          "Value": "\"2E8JsVXvxF9X3alZcnsRSStfeqVlUNcJvpEmcZuTluw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Nov 2025 11:53:15 GMT"
+          "Value": "Fri, 07 Nov 2025 13:31:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -420,7 +750,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pfo6psc2f7"
+          "Value": "s7w3616rjd"
         },
         {
           "Name": "label",
@@ -428,7 +758,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-y1X0J2yvG+GIQuvhqcOtjsX4RD7tU0Tz125GganV5W0="
+          "Value": "sha256-2E8JsVXvxF9X3alZcnsRSStfeqVlUNcJvpEmcZuTluw="
         }
       ]
     },
@@ -593,6 +923,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-8poiu6GP61fGbNKGeJnZQy3wUYzyUXVnX3/Tymlkl5Y="
+        }
+      ]
+    },
+    {
+      "Route": "layouts/Pages/register.3s9jz7za80.html",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3324"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vRihsCyWFwDIdQ+yZUjG4wnEsMxxsWpoEC3bwXXXMUo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:32:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3s9jz7za80"
+        },
+        {
+          "Name": "label",
+          "Value": "layouts/Pages/register.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vRihsCyWFwDIdQ+yZUjG4wnEsMxxsWpoEC3bwXXXMUo="
+        }
+      ]
+    },
+    {
+      "Route": "layouts/Pages/register.html",
+      "AssetFile": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3324"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vRihsCyWFwDIdQ+yZUjG4wnEsMxxsWpoEC3bwXXXMUo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 07 Nov 2025 13:32:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vRihsCyWFwDIdQ+yZUjG4wnEsMxxsWpoEC3bwXXXMUo="
         }
       ]
     },

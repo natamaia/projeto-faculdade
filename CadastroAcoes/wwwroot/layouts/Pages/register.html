@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script defer src="/assets/register.js"></script>
+    <style>
+      .hidden { display:none; }
+    </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="card mx-auto" style="max-width:720px;">
+      <div class="card-body">
+        <h3 class="card-title mb-4">Cadastro</h3>
+
+        <div class="mb-3">
+          <label for="typeSelect" class="form-label">Sou:</label>
+          <select id="typeSelect" class="form-select">
+            <option value="client">Cliente</option>
+            <option value="vendor">Vendedor</option>
+          </select>
+        </div>
+
+        <form id="registerForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Nome</label>
+              <input name="username" id="username" class="form-control" required />
+            </div>
+            <div class="col-md-6 mb-3 client-field">
+              <label class="form-label">CPF</label>
+              <input name="cpf" id="cpf" type="number" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3 vendor-field hidden">
+              <label class="form-label">CNPJ</label>
+              <input name="cnpj" id="cnpj" type="number" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3 client-field">
+              <label class="form-label">Idade</label>
+              <input name="age" id="age" type="number" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3 vendor-field hidden">
+              <label class="form-label">Nome da Empresa</label>
+              <input name="empresa" id="empresa" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3 client-field">
+              <label class="form-label">Endereço</label>
+              <input name="address" id="address" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3 vendor-field hidden">
+              <label class="form-label">CEP</label>
+              <input name="cep_vendor" id="cep_vendor" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Email</label>
+              <input name="email" id="email" type="email" class="form-control" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Número de celular</label>
+              <input name="phone" id="phone" type="tel" class="form-control" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Senha</label>
+              <input name="password" id="password" type="password" class="form-control" required />
+            </div>
+          </div>
+
+          <div class="d-grid mt-3">
+            <button class="btn btn-primary">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

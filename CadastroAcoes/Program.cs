@@ -2,9 +2,14 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Model.Repository;
+using DotNetEnv;
+
+// logo no início do arquivo, antes de criar o builder:
+DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +30,11 @@ builder.Services.AddSingleton(sp =>
 
 // Registrar repositório de usuario (implemente abaixo)
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+// Registrar repositório de produtos
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+// Registrar repositórios de clientes e vendors
+builder.Services.AddScoped<IUserClientRepository, UserClientRepository>();
+builder.Services.AddScoped<IUserVendorRepository, UserVendorRepository>();
 
 // Configurar JWT
 var key = Encoding.UTF8.GetBytes(jwtSection.GetValue<string>("Key"));
@@ -59,6 +69,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Serve um arquivo padrão quando a raiz for acessada. Inclui o index dentro de /layouts.
+var defaultFilesOptions = new DefaultFilesOptions();
+// busca por "layouts/index.html" primeiro, depois por "index.html" na raiz
+defaultFilesOptions.DefaultFileNames.Clear();
+defaultFilesOptions.DefaultFileNames.Add("layouts/index.html");
+defaultFilesOptions.DefaultFileNames.Add("index.html");
+app.UseDefaultFiles(defaultFilesOptions);
 app.UseStaticFiles(); // serve wwwroot
 app.UseRouting();
 
