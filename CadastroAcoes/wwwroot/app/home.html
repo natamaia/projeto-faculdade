@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/styles.css">
   <script src="/assets/ui.js"></script>
-  <script defer src="/assets/app.js"></script>
+  <script src="/assets/app.js"></script>
   <style>
     /* keep a tiny helper for the collapse behavior; layout uses Tailwind utilities where possible */
     #sidebar { transition: width .2s; }
@@ -15,7 +15,8 @@
     #sidebar.collapsed .sidebar-text { display: none; }
   </style>
 </head>
-<body class="min-h-screen bg-gray-50 text-body">
+<!-- ALTERAÇÃO 1: Adicionado 'flex flex-col' ao body -->
+<body class="min-h-screen bg-gray-50 text-body flex flex-col">
   <nav class="bg-white shadow w-full">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -41,7 +42,8 @@
     </div>
   </nav>
 
-  <div class="flex">
+  <!-- ALTERAÇÃO 2: Adicionado 'flex-1' a esta div -->
+  <div class="flex flex-1">
     <!-- sidebar: hidden on small screens, visible on md+ -->
     <aside id="sidebar" class="hidden md:block bg-gray-800 text-white p-4" style="width:250px;">
       <ul class="space-y-2">
@@ -95,9 +97,32 @@
     </div>
   </main>
 
-  <footer class="bg-gray-100 text-center py-2 w-full fixed bottom-0 left-0">
-    <small class="text-gray-600">&copy; 2025 MinhaApp</small>
+</div>
+  <!-- ALTERAÇÃO 3: Removido 'absolute', 'right-0', 'bottom-0' do footer -->
+  <!-- CORREÇÃO BÔNUS: Adicionado </p> faltando -->
+  <footer class="bg-white shadow-sm dark:bg-gray-800 text-center w-full mx-auto">
+    <!-- <small class="text-gray-600">&copy; 2025 MinhaApp</small> -->
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <p>&copy; <span id="Year" class="text-sm text-gray-500 sm:text-center dark:text-gray-400"></span></p>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+            <a href="/app/sobre.html" class="hover:underline me-4 md:me-6">Sobre</a>
+          </li>
+          <li>
+            <a href="/app/privacidade.html" class="hover:underline me-4 md:me-6">Politica de Privacidade</a>
+          </li>
+          <li>
+            <a href="https://github.com/natamaia/projeto-faculdade" class="hover:underline me-4 md:me-6">Github</a>
+          </li>
+          <li>
+            <a href="/app/contato.html" class="hover:underline">Contato</a>
+          </li>
+        </ul>
+    </div>
   </footer>
-  </div>
+  <script>
+    var spanAno = document.getElementById("Year");
+    spanAno.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

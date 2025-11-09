@@ -33,6 +33,26 @@
       "PackagePath": "staticwebassets\\content\\login.js"
     },
     {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\Client\\ClientProfile.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\Client\\ClientProfile.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\Client\\EditProfile.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\Client\\EditProfile.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\Vendor\\EditProfile.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\Vendor\\EditProfile.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\Vendor\\VendorProfile.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\Vendor\\VendorProfile.html"
+    },
+    {
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\chat.html",
+      "PackagePath": "staticwebassets\\layouts\\Pages\\chat.html"
+    },
+    {
       "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
       "PackagePath": "staticwebassets\\layouts\\Pages\\login.html"
     },
