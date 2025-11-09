@@ -1,59 +1,59 @@
 {
   "Files": [
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
       "PackagePath": "staticwebassets\\app\\home.html"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
       "PackagePath": "staticwebassets\\assets\\app.js"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\input.css",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\input.css",
       "PackagePath": "staticwebassets\\assets\\input.css"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
       "PackagePath": "staticwebassets\\assets\\register.js"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
       "PackagePath": "staticwebassets\\assets\\styles.css"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\ui.js",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\ui.js",
       "PackagePath": "staticwebassets\\assets\\ui.js"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\App.js",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\App.js",
       "PackagePath": "staticwebassets\\content\\App.js"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\login.js",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\login.js",
       "PackagePath": "staticwebassets\\content\\login.js"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
       "PackagePath": "staticwebassets\\layouts\\Pages\\login.html"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
       "PackagePath": "staticwebassets\\layouts\\Pages\\register.html"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",
       "PackagePath": "staticwebassets\\layouts\\Properties\\footer.html"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\header.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\header.html",
       "PackagePath": "staticwebassets\\layouts\\Properties\\header.html"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\sidebar.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\sidebar.html",
       "PackagePath": "staticwebassets\\layouts\\Properties\\sidebar.html"
     },
     {
-      "Id": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\index.html",
+      "Id": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\index.html",
       "PackagePath": "staticwebassets\\layouts\\index.html"
     },
     {

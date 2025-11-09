@@ -40,9 +40,11 @@ namespace Controller
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] Product product)
         {
-            if (product.Id != id) product.Id = id;
             var existing = await _repo.GetByIdAsync(id);
             if (existing == null) return NotFound();
+
+            product.Id = id;
+            
             await _repo.UpdateAsync(product);
             return NoContent();
         }

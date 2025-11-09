@@ -14,7 +14,7 @@ namespace Model.Repository
         public async Task CreateAsync(UserVendor user) =>
             await _vendors.InsertOneAsync(user);
 
-        public async Task<UserVendor?> GetByCnpjAsync(int cnpj) =>
-            await _vendors.Find(u => u.cnpj == cnpj).FirstOrDefaultAsync();
+        public async Task<UserVendor?> GetByCnpjAsync(long cnpj) =>
+            await _vendors.Find(u => u.Cnpj == cnpj).FirstOrDefaultAsync();
     }
 }

@@ -6,11 +6,6 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Model.Repository;
-using DotNetEnv;
-
-// logo no início do arquivo, antes de criar o builder:
-DotNetEnv.Env.Load();
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,15 +13,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configs do appsettings
-var mongoSection = builder.Configuration.GetSection("MongoDb");
-var jwtSection = builder.Configuration.GetSection("Jwt");
-
 // Registrar MongoClient e Database
 builder.Services.AddSingleton<IMongoClient>(sp =>
-    new MongoClient(mongoSection.GetValue<string>("ConnectionString")));
+    new MongoClient("mongodb://localhost:27017"));
 builder.Services.AddSingleton(sp =>
-    sp.GetRequiredService<IMongoClient>().GetDatabase(mongoSection.GetValue<string>("Database")));
+    sp.GetRequiredService<IMongoClient>().GetDatabase("CadastroAcoesDb"));
+
+// Configs do appsettings (JWT will still be read from appsettings)
+var jwtSection = builder.Configuration.GetSection("Jwt");
 
 // Registrar repositório de usuario (implemente abaixo)
 builder.Services.AddScoped<IUserRepository, UserRepository>();

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+7rTmQ43ZbdD7IDikidT9briTWc484g26D9+roCRT3I=",
+  "Hash": "Hbpbm16Y+zSeSr45NuryAA5i3qF6p6rjTJ9remlAlEs=",
   "Source": "CadastroAcoes",
   "BasePath": "_content/CadastroAcoes",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CadastroAcoes\\wwwroot",
       "Source": "CadastroAcoes",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\app\\home.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "app/home.html",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\app\\home.html"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\app.js",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "assets/app.js",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\app.js"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\input.css",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\input.css",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "assets/input.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\input.css"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\register.js",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "assets/register.js",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\register.js"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\styles.css",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "assets/styles.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\styles.css"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\ui.js",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\assets\\ui.js",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "assets/ui.js",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\ui.js"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\App.js",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\App.js",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "content/App.js",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\content\\App.js"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\login.js",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\content\\login.js",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "content/login.js",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\content\\login.js"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\index.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\index.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "layouts/index.html",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\layouts\\index.html"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\login.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "layouts/Pages/login.html",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\layouts\\Pages\\login.html"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Pages\\register.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "layouts/Pages/register.html",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\layouts\\Pages\\register.html"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\footer.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "layouts/Properties/footer.html",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\layouts\\Properties\\footer.html"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\header.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\header.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "layouts/Properties/header.html",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\layouts\\Properties\\header.html"
     },
     {
-      "Identity": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\sidebar.html",
+      "Identity": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\layouts\\Properties\\sidebar.html",
       "SourceId": "CadastroAcoes",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
+      "ContentRoot": "C:\\projeto-faculdade\\CadastroAcoes\\wwwroot\\",
       "BasePath": "_content/CadastroAcoes",
       "RelativePath": "layouts/Properties/sidebar.html",
       "AssetKind": "All",

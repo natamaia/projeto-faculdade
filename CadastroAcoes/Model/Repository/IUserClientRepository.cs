@@ -9,6 +9,6 @@ namespace Model.Repository
     public interface IUserClientRepository
     {
         Task CreateAsync(UserClient user);
-        Task<UserClient?> GetByCfpAsync(int cfp);
+        Task<UserClient?> GetByCfpAsync(long cfp);
     }
 }

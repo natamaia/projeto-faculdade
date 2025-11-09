@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.assign(profileData, {
           cpf: parseInt(document.getElementById('cpf').value || '0'),
           address: document.getElementById('address').value,
-          age: parseInt(document.getElementById('age').value || '0'),
           // fullname can be added here if needed by the backend
         });
         profileResponse = await fetch('/api/clients', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(profileData) });
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.assign(profileData, {
           cnpj: parseInt(document.getElementById('cnpj').value || '0'),
           empresa: document.getElementById('empresa').value,
-          // cep_vendor can be added here if needed
         });
         profileResponse = await fetch('/api/vendors', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(profileData) });
       }

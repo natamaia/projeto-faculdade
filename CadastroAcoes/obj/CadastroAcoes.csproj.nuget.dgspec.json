@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj": {}
+    "C:\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj": {}
   },
   "projects": {
-    "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj": {
+    "C:\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj",
+        "projectUniqueName": "C:\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj",
         "projectName": "CadastroAcoes",
-        "projectPath": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj",
-        "packagesPath": "C:\\Users\\harie\\.nuget\\packages\\",
-        "outputPath": "C:\\natanael\\projeto-faculdade\\CadastroAcoes\\obj\\",
+        "projectPath": "C:\\projeto-faculdade\\CadastroAcoes\\CadastroAcoes.csproj",
+        "packagesPath": "C:\\Users\\natanael\\.nuget\\packages\\",
+        "outputPath": "C:\\projeto-faculdade\\CadastroAcoes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\harie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\natanael\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -53,7 +53,7 @@
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[8.0.21, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
@@ -61,7 +61,7 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[3.5.0, )"
+              "version": "[2.25.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

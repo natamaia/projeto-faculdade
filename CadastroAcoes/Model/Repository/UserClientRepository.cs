@@ -14,7 +14,7 @@ namespace Model.Repository
         public async Task CreateAsync(UserClient user) =>
             await _clients.InsertOneAsync(user);
 
-        public async Task<UserClient?> GetByCfpAsync(int cfp) =>
+        public async Task<UserClient?> GetByCfpAsync(long cfp) =>
             await _clients.Find(u => u.Cfp == cfp).FirstOrDefaultAsync();
     }
 }

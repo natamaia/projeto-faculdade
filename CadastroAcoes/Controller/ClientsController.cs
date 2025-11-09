@@ -27,8 +27,7 @@ namespace Controller
                 Cfp = dto.Cfp,
                 Address = dto.Address,
                 PhoneNumber = dto.PhoneNumber,
-                Cep = dto.Cep,
-                Age = dto.Age
+                Cep = dto.Cep
             };
 
             await _repo.CreateAsync(userClient);
@@ -39,10 +38,9 @@ namespace Controller
     public class CreateClientProfileDto
     {
         public string UserId { get; set; } = null!;
-        public int Cfp { get; set; }
+        public long Cfp { get; set; }
         public string Address { get; set; } = null!;
-        public int PhoneNumber { get; set; }
-        public int Cep { get; set; }
-        public int Age { get; set; }
+        public long PhoneNumber { get; set; }
+        public long Cep { get; set; }
     }
 }

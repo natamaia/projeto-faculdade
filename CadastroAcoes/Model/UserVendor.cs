@@ -12,8 +12,8 @@ namespace Model
         [BsonRepresentation(BsonType.ObjectId)]
         public string UserId { get; set; } = null!; // Link to the main User model
 
-        public int cnpj { get; set; } = 0;
-        public int PhoneNumber { get; set; } = 0;
+        public long Cnpj { get; set; } = 0;
+        public long PhoneNumber { get; set; } = 0;
         public string Empresa { get; set; } = null!;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

@@ -7,6 +7,8 @@ using Model;
 using Model.Repository;
 using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
+using System.ComponentModel.DataAnnotations;
+using MongoDB.Driver;
 
 namespace Controller
 {
@@ -26,18 +28,21 @@ namespace Controller
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-            if (await _repo.GetByApelidoAsync(registerDto.Apelido) != null)
-                return BadRequest("Este apelido já está em uso.");
+            if (registerDto.Apelido == null || await _repo.GetByApelidoAsync(registerDto.Apelido) != null)
+                return BadRequest("Este apelido já está em uso ou é inválido.");
 
-            if (await _repo.GetByEmailAsync(registerDto.Email) != null)
-                return BadRequest("Este email já está em uso.");
+            if (registerDto.Email == null || await _repo.GetByEmailAsync(registerDto.Email) != null)
+                return BadRequest("Este email já está em uso ou é inválido.");
+
+            if (string.IsNullOrEmpty(registerDto.Password))
+                return BadRequest("A senha é obrigatória.");
 
             using var sha = SHA256.Create();
             var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)));
 
             var user = new User
             {
-                Username = registerDto.Username, // Mantendo Username se ainda for necessário
+                Username = registerDto.Username ?? string.Empty,
                 Apelido = registerDto.Apelido,
                 Email = registerDto.Email,
                 PasswordHash = hash
@@ -50,46 +55,49 @@ namespace Controller
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            // Admin login for development
-            if (loginDto.Identifier == CadastroAcoes.TempDev.AdminConfig.Username && loginDto.Password == CadastroAcoes.TempDev.AdminConfig.Password)
+            if (string.IsNullOrEmpty(loginDto.Identifier) || string.IsNullOrEmpty(loginDto.Password))
             {
-                var adminClaims = new[]
-                {
-                    new Claim(ClaimTypes.Name, "admin"),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-                var token = new JwtSecurityToken(
-                    issuer: _config["Jwt:Issuer"],
-                    audience: _config["Jwt:Audience"],
-                    claims: adminClaims,
-                    expires: DateTime.Now.AddMinutes(30),
-                    signingCredentials: creds
-                );
-
-                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
+                return BadRequest("Identifier and Password are required.");
             }
 
-            var user = await _repo.GetByLoginIdentifierAsync(loginDto.Identifier);
+            User? user;
+            try
+            {
+                user = await _repo.GetByLoginIdentifierAsync(loginDto.Identifier);
+            }
+            catch (MongoException ex)
+            {
+                // Log the exception details here if you have a logging framework
+                return StatusCode(503, new { message = "Database is currently unavailable. Please try again later.", details = ex.Message });
+            }
+            catch (TimeoutException ex)
+            {
+                return StatusCode(503, new { message = "Database connection timed out. Please try again later.", details = ex.Message });
+            }
+
             if (user == null) return Unauthorized();
 
             using var sha = SHA256.Create();
             var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password)));
             if (user.PasswordHash != hash) return Unauthorized();
 
-            var token = GenerateToken(user.Apelido);
+            var token = GenerateToken(user);
             return Ok(new { token });
         }
 
-        private string GenerateToken(string apelido)
+        private string GenerateToken(User user)
         {
-            var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
+            var jwtKey = _config["Jwt:Key"];
+            if (string.IsNullOrEmpty(jwtKey))
+            {
+                throw new InvalidOperationException("JWT Key is not configured in appsettings.json");
+            }
+
+            var key = Encoding.UTF8.GetBytes(jwtKey);
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, apelido)
+                new Claim(ClaimTypes.NameIdentifier, user.Id ?? string.Empty),
+                new Claim(ClaimTypes.Name, user.Apelido ?? string.Empty)
             };
             var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
@@ -105,15 +113,21 @@ namespace Controller
 
     public class LoginDto
     {
-        public string Identifier { get; set; }
-        public string Password { get; set; }
+        [Required]
+        public string? Identifier { get; set; }
+        [Required]
+        public string? Password { get; set; }
     }
 
     public class RegisterDto
     {
-        public string Username { get; set; }
-        public string Apelido { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        [Required]
+        public string? Username { get; set; }
+        [Required]
+        public string? Apelido { get; set; }
+        [Required]
+        public string? Email { get; set; }
+        [Required]
+        public string? Password { get; set; }
     }
 }

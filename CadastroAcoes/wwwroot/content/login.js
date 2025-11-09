@@ -18,37 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return username.trim() !== '' && password.trim() !== '';
     }
 
-    function authenticateLocally(username, password) {
-        // default admin as requested
-        if (username === 'admin' && password === 'admin') {
-            localStorage.setItem('token', 'local-admin');
-            localStorage.setItem('username', username);
-            window.location.href = '/app/home.html';
-            return true;
-        }
-
-        // check locally registered users
-        try {
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
-            const found = users.find(u => u.username === username && u.password === password);
-            if (found) {
-                localStorage.setItem('token', 'local-' + username);
-                localStorage.setItem('username', username);
-                window.location.href = '/app/home.html';
-                return true;
-            }
-        } catch (e) {
-            console.warn('Erro lendo usuários locais', e);
-        }
-
-        return false;
-    }
-
     async function authenticateUser(username, password) {
-        // try local first (simple offline dev flow)
-        if (authenticateLocally(username, password)) return;
-
-        // then try API if available; otherwise fallback to failure
         try {
             const res = await fetch('/api/auth/login', {
                 method: 'POST',
@@ -72,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } catch (err) {
             console.error('Erro ao chamar API de login', err);
-            if (window.showToast) showToast('Usuário não encontrado localmente e servidor indisponível. Verifique credenciais.', 'error'); else alert('Usuário não encontrado localmente e servidor indisponível. Verifique credenciais.');
+            if (window.showToast) showToast('Erro ao tentar autenticar. Verifique a conexão com o servidor.', 'error'); else alert('Erro ao tentar autenticar. Verifique a conexão com o servidor.');
         }
     }
 });
