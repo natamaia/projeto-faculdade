@@ -1,9 +1,7 @@
-# Ignore environment file with secrets
-.env
-
+# .gitignore for C# projects
 # Visual Studio / Rider / VS Code defaults
-bin/
-obj/
+bin/*
+obj/*
 .vs/
 .idea/
 
