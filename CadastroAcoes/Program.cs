@@ -31,7 +31,14 @@ builder.Services.AddScoped<IUserClientRepository, UserClientRepository>();
 builder.Services.AddScoped<IUserVendorRepository, UserVendorRepository>();
 
 // Configurar JWT
-var key = Encoding.UTF8.GetBytes(jwtSection.GetValue<string>("Key"));
+// Ler a chave de JWT e garantir que não é nula. Em desenvolvimento, é melhor falhar com mensagem clara
+var jwtKeyString = jwtSection.GetValue<string>("Key");
+if (string.IsNullOrEmpty(jwtKeyString))
+{
+    // Falha cedo e explicativa para evitar passar null para Encoding.GetBytes
+    throw new InvalidOperationException("JWT 'Key' is not configured. Please set 'Jwt:Key' in appsettings.json or environment variables for the application to start.");
+}
+var key = Encoding.UTF8.GetBytes(jwtKeyString);
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -73,6 +80,9 @@ defaultFilesOptions.DefaultFileNames.Add("index.html");
 app.UseDefaultFiles(defaultFilesOptions);
 app.UseStaticFiles(); // serve wwwroot
 app.UseRouting();
+
+// Global error handling middleware - returns structured error responses
+app.UseMiddleware<Middleware.ErrorHandlingMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

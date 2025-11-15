@@ -1,0 +1,131 @@
+<div class="container mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-4">Meus Produtos</h2>
+
+  <div id="listMsg" class="mb-4"></div>
+
+  <div id="productsList" class="grid grid-cols-1 gap-4"></div>
+
+  <!-- Edit modal area (simple inline) -->
+  <div id="editArea" class="mt-6 max-w-lg hidden">
+    <h3 class="font-semibold">Editar Produto</h3>
+    <form id="editForm" class="space-y-3">
+      <input type="hidden" id="editId" />
+      <div>
+        <label>Nome</label>
+        <input id="editName" class="w-full border rounded p-2" />
+      </div>
+      <div>
+        <label>Descrição</label>
+        <textarea id="editDescription" class="w-full border rounded p-2"></textarea>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label>Preço</label>
+          <input id="editPrice" type="number" step="0.01" class="w-full border rounded p-2" />
+        </div>
+        <div>
+          <label>Quantidade</label>
+          <input id="editQuantity" type="number" class="w-full border rounded p-2" />
+        </div>
+      </div>
+      <div>
+        <button id="saveBtn" class="bg-green-600 text-white px-3 py-1 rounded">Salvar</button>
+        <button id="cancelEditBtn" class="ml-2 border px-3 py-1 rounded">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/assets/vendor.js"></script>
+<script>
+  async function loadProducts(){
+    const container = document.getElementById('productsList');
+    const msg = document.getElementById('listMsg');
+    container.innerHTML = '';
+    msg.textContent = '';
+    try{
+      const res = await fetch('/api/products/vendor/' + encodeURIComponent(vendor_getId()));
+      if (!res.ok) { msg.textContent = 'Falha ao carregar produtos.'; msg.className='text-red-600'; return; }
+      const items = await res.json();
+      if (!items || items.length === 0) { container.innerHTML = '<div>Nenhum produto encontrado.</div>'; return; }
+
+      items.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'border rounded p-3 flex justify-between items-start';
+
+        const left = document.createElement('div');
+        left.innerHTML = `<div class="font-semibold">${escapeHtml(p.name)}</div><div class="text-sm text-gray-700">${escapeHtml(p.description || '')}</div><div class="text-sm text-gray-900">Preço: R$ ${p.price}</div><div class="text-sm text-gray-900">Qtd: ${p.quantity}</div>`;
+
+        const actions = document.createElement('div');
+        actions.innerHTML = `
+          <button class="editBtn bg-yellow-500 text-white px-2 py-1 rounded" data-id="${p.id}">Editar</button>
+          <button class="deleteBtn ml-2 bg-red-600 text-white px-2 py-1 rounded" data-id="${p.id}">Remover</button>
+        `;
+
+        card.appendChild(left);
+        card.appendChild(actions);
+        container.appendChild(card);
+      });
+
+      // wire buttons
+      document.querySelectorAll('.editBtn').forEach(b => b.addEventListener('click', onEdit));
+      document.querySelectorAll('.deleteBtn').forEach(b => b.addEventListener('click', onDelete));
+
+    }catch(err){
+      console.error(err); msg.textContent = 'Erro ao carregar produtos.'; msg.className='text-red-600';
+    }
+  }
+
+  function escapeHtml(s){ return (s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function onEdit(e){
+    const id = e.currentTarget.dataset.id;
+    fetch('/api/products/' + encodeURIComponent(id)).then(r=>r.json()).then(p=>{
+      document.getElementById('editArea').classList.remove('hidden');
+      document.getElementById('editId').value = p.id || p.Id || '';
+      document.getElementById('editName').value = p.name || p.Name || '';
+      document.getElementById('editDescription').value = p.description || p.Description || '';
+      document.getElementById('editPrice').value = p.price || p.Price || 0;
+      document.getElementById('editQuantity').value = p.quantity || p.Quantity || 0;
+    }).catch(err=>{console.error(err); alert('Erro ao obter produto.');});
+  }
+
+  async function onDelete(e){
+    if (!confirm('Remover este produto?')) return;
+    const id = e.currentTarget.dataset.id;
+    try{
+      const res = await fetch('/api/products/' + encodeURIComponent(id), { method: 'DELETE' });
+      if (!res.ok) { alert('Falha ao remover.'); return; }
+      await loadProducts();
+    }catch(err){ console.error(err); alert('Erro ao remover produto.'); }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    loadProducts();
+
+    const editForm = document.getElementById('editForm');
+    const cancelBtn = document.getElementById('cancelEditBtn');
+
+    cancelBtn.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('editArea').classList.add('hidden'); });
+
+    editForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const id = document.getElementById('editId').value;
+      const payload = {
+        id: id,
+        name: document.getElementById('editName').value.trim(),
+        description: document.getElementById('editDescription').value.trim(),
+        price: parseFloat(document.getElementById('editPrice').value) || 0,
+        quantity: parseInt(document.getElementById('editQuantity').value) || 0,
+        VendorId: vendor_getId(),
+      };
+
+      try{
+        const res = await fetch('/api/products/' + encodeURIComponent(id), { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+        if (!res.ok) { alert('Falha ao salvar.'); return; }
+        document.getElementById('editArea').classList.add('hidden');
+        await loadProducts();
+      }catch(err){ console.error(err); alert('Erro ao salvar.'); }
+    });
+  });
+</script>

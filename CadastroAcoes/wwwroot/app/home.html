@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/assets/styles.css">
   <script src="/assets/ui.js"></script>
   <script src="/assets/app.js"></script>
+  <script src="/assets/auth.js"></script>
+  <script src="/assets/sidebar.js"></script>
   <style>
     /* keep a tiny helper for the collapse behavior; layout uses Tailwind utilities where possible */
     #sidebar { transition: width .2s; }
@@ -44,13 +46,8 @@
 
   <!-- ALTERAÇÃO 2: Adicionado 'flex-1' a esta div -->
   <div class="flex flex-1">
-    <!-- sidebar: hidden on small screens, visible on md+ -->
-    <aside id="sidebar" class="hidden md:block bg-gray-800 text-white p-4" style="width:250px;">
-      <ul class="space-y-2">
-        <li><a class="block text-white hover:bg-gray-700 px-2 py-1 rounded" href="#" id="navUser"><span class="sidebar-text">Usuário</span></a></li>
-        <li><a class="block text-white hover:bg-gray-700 px-2 py-1 rounded" href="#"><span class="sidebar-text">Produtos</span></a></li>
-      </ul>
-    </aside>
+    <!-- sidebar placeholder (will be injected) -->
+    <div data-inject-sidebar></div>
 
     <main id="content" class="p-6 flex-1">
     <div id="pageUser" class="hidden">
@@ -76,22 +73,28 @@
 
       <!-- example cards grid -->
       <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-white rounded-lg shadow p-4">
-          <h5 class="text-lg font-medium">Card de Vendas</h5>
-          <p class="text-sm text-gray-600">Resumo das vendas do dia, tickets e metas.</p>
-          <a href="#" class="inline-block mt-3 bg-blue-600 text-white py-1 px-3 rounded">Ver detalhes</a>
+        <div class="card">
+          <h5 class="card-title">Card de Vendas</h5>
+          <p class="muted">Resumo das vendas do dia, tickets e metas.</p>
+          <a href="/app/sales.html" class="inline-block mt-3 bg-theme-azul-escuro text-white py-1 px-3 rounded">Ver detalhes</a>
         </div>
 
-        <div class="bg-white rounded-lg shadow p-4">
-          <h5 class="text-lg font-medium">Card de Estoque</h5>
-          <p class="text-sm text-gray-600">Produtos com baixo estoque e alertas.</p>
-          <a href="#" class="inline-block mt-3 bg-gray-600 text-white py-1 px-3 rounded">Ver estoque</a>
+        <div class="card">
+          <h5 class="card-title">Card de Estoque</h5>
+          <p class="muted">Produtos com baixo estoque e alertas.</p>
+          <a href="/app/stock.html" class="inline-block mt-3 bg-theme-cinza text-white py-1 px-3 rounded">Ver estoque</a>
         </div>
 
-        <div class="bg-white rounded-lg shadow p-4">
-          <h5 class="text-lg font-medium">Card de Usuários</h5>
-          <p class="text-sm text-gray-600">Gerencie usuários cadastrados e permissões.</p>
-          <a href="#" class="inline-block mt-3 border border-blue-600 text-blue-600 py-1 px-3 rounded">Gerenciar</a>
+        <div class="card">
+          <h5 class="card-title">Card de Usuários</h5>
+          <p class="muted">Gerencie usuários cadastrados e permissões.</p>
+          <a href="/app/users.html" class="inline-block mt-3 border border-theme-marinho text-theme-marinho py-1 px-3 rounded">Gerenciar</a>
+        </div>
+
+        <div class="card">
+          <h5 class="card-title">Produtos (Cadastrar / Editar)</h5>
+          <p class="muted">Acesse o formulário para cadastrar ou editar produtos.</p>
+          <a href="/app/product-form.html" class="inline-block mt-3 bg-theme-marinho text-white py-1 px-3 rounded">Cadastrar / Editar Produtos</a>
         </div>
       </div>
     </div>
@@ -123,6 +126,26 @@
   <script>
     var spanAno = document.getElementById("Year");
     spanAno.textContent = new Date().getFullYear();
+
+    // sidebar dropdown and collapse behavior
+    document.addEventListener('DOMContentLoaded', function(){
+      const menuBtn = document.getElementById('menuProducts');
+      const dropdown = document.getElementById('productsDropdown');
+      if (menuBtn && dropdown) {
+        menuBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          dropdown.classList.toggle('hidden');
+        });
+      }
+
+      const toggleBtn = document.getElementById('toggleBtn');
+      const sidebar = document.getElementById('sidebar');
+      if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', function(){
+          sidebar.classList.toggle('hidden');
+        });
+      }
+    });
   </script>
 </body>
 </html>

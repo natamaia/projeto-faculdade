@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estoque</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/auth.js"></script>
+  <script src="/assets/sidebar.js"></script>
+</head>
+<body class="min-h-screen bg-theme-cinza-claro">
+  <div class="max-w-5xl mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4">Estoque</h1>
+    <div id="stockList" class="grid gap-3"></div>
+  </div>
+<script>
+async function loadStock(){
+    const el = document.getElementById('stockList');
+  el.innerHTML = '<div class="p-3 bg-white rounded shadow">Carregando...</div>';
+  try{
+    const vendor = (window.getVendorIdFromToken ? window.getVendorIdFromToken() : (localStorage.getItem('vendor-id') || localStorage.getItem('username') || ''));
+    const res = await fetch('/api/products/vendor/' + encodeURIComponent(vendor));
+    if (!res.ok) { el.innerHTML = '<div class="text-red-600">Falha ao carregar estoque</div>'; return; }
+    const items = await res.json();
+    if (!items || items.length===0) { el.innerHTML = '<div>Nenhum produto no estoque.</div>'; return; }
+    el.innerHTML = '';
+    items.forEach(p => {
+      const row = document.createElement('div');
+      row.className = 'bg-white rounded-lg shadow p-4 flex items-center justify-between';
+      row.innerHTML = `<div><div class="font-semibold text-lg">${escapeHtml(p.name)}</div><div class="text-sm text-gray-600">${escapeHtml(p.description||'')}</div></div><div class="text-sm font-medium">Qtd: <span class="ml-1">${p.quantity}</span></div>`;
+      el.appendChild(row);
+    });
+  }catch(err){ console.error(err); document.getElementById('stockList').innerHTML = '<div class="text-red-600">Erro ao carregar estoque</div>'; }
+}
+function escapeHtml(s){ return (s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+loadStock();
+</script>
+</body>
+</html>

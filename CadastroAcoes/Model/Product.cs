@@ -21,6 +21,8 @@ namespace Model
         // opcional: relacionar com vendedor
         public string? VendorId { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

@@ -29,13 +29,13 @@ namespace Controller
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
             if (registerDto.Apelido == null || await _repo.GetByApelidoAsync(registerDto.Apelido) != null)
-                return BadRequest("Este apelido já está em uso ou é inválido.");
+                return BadRequest(new ErrorResponse { Code = "INVALID_NICKNAME", Message = "Este apelido já está em uso ou é inválido." });
 
             if (registerDto.Email == null || await _repo.GetByEmailAsync(registerDto.Email) != null)
-                return BadRequest("Este email já está em uso ou é inválido.");
+                return BadRequest(new ErrorResponse { Code = "INVALID_EMAIL", Message = "Este email já está em uso ou é inválido." });
 
             if (string.IsNullOrEmpty(registerDto.Password))
-                return BadRequest("A senha é obrigatória.");
+                return BadRequest(new ErrorResponse { Code = "PASSWORD_REQUIRED", Message = "A senha é obrigatória." });
 
             using var sha = SHA256.Create();
             var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)));
@@ -48,8 +48,19 @@ namespace Controller
                 PasswordHash = hash
             };
 
-            await _repo.CreateAsync(user);
-            return Ok(user);
+            try
+            {
+                await _repo.CreateAsync(user);
+                return Ok(user);
+            }
+            catch (MongoException mex)
+            {
+                return StatusCode(503, new ErrorResponse { Code = "DB_UNAVAILABLE", Message = "Serviço de banco de dados indisponível.", Details = mex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ErrorResponse { Code = "INTERNAL_ERROR", Message = "Erro ao criar usuário.", Details = ex.Message });
+            }
         }
 
         [HttpPost("login")]
@@ -57,7 +68,7 @@ namespace Controller
         {
             if (string.IsNullOrEmpty(loginDto.Identifier) || string.IsNullOrEmpty(loginDto.Password))
             {
-                return BadRequest("Identifier and Password are required.");
+                return BadRequest(new ErrorResponse { Code = "INVALID_PAYLOAD", Message = "Identifier and Password are required." });
             }
 
             User? user;
@@ -67,19 +78,18 @@ namespace Controller
             }
             catch (MongoException ex)
             {
-                // Log the exception details here if you have a logging framework
-                return StatusCode(503, new { message = "Database is currently unavailable. Please try again later.", details = ex.Message });
+                return StatusCode(503, new ErrorResponse { Code = "DB_UNAVAILABLE", Message = "Serviço de banco de dados indisponível.", Details = ex.Message });
             }
             catch (TimeoutException ex)
             {
-                return StatusCode(503, new { message = "Database connection timed out. Please try again later.", details = ex.Message });
+                return StatusCode(503, new ErrorResponse { Code = "DB_TIMEOUT", Message = "Tempo de conexão com o banco expirou.", Details = ex.Message });
             }
 
-            if (user == null) return Unauthorized();
+            if (user == null) return Unauthorized(new ErrorResponse { Code = "INVALID_CREDENTIALS", Message = "Usuário ou senha inválidos." });
 
             using var sha = SHA256.Create();
             var hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password)));
-            if (user.PasswordHash != hash) return Unauthorized();
+            if (user.PasswordHash != hash) return Unauthorized(new ErrorResponse { Code = "INVALID_CREDENTIALS", Message = "Usuário ou senha inválidos." });
 
             var token = GenerateToken(user);
             return Ok(new { token });

@@ -2,8 +2,28 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    /* main background requested (preferência: deep sea palette, primary bg set to #023e8a) */
+    --deep-0: #0d1b2a; /* deep sea */
+    --deep-1: #1b263b;
+    --deep-2: #415a77;
+    --deep-3: #778da9;
+    --deep-4: #e0e1dd;
+    --accent: #023e8a;
+    background-color: var(--accent);
+    color: var(--deep-4);
 }
+
+/* Theme color helpers requested: azul escuro, vermelho, preto, cinza claro/dark, marinho */
+.bg-deep-0 { background-color: var(--deep-0); }
+.bg-deep-1 { background-color: var(--deep-1); }
+.bg-deep-2 { background-color: var(--deep-2); }
+.bg-deep-3 { background-color: var(--deep-3); }
+.bg-deep-4 { background-color: var(--deep-4); }
+.bg-accent { background-color: var(--accent); }
+
+.border-deep-0 { border-color: var(--deep-0); }
+.border-deep-1 { border-color: var(--deep-1); }
+.border-accent { border-color: var(--accent); }
 
 header {
     background: #35424a;
@@ -60,3 +80,8 @@ input[type="submit"]:hover {
     bottom: 0;
     width: 100%;
 }
+
+/* small card helper */
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06);} 
+.card .card-title { font-weight: 600; margin-bottom: 0.5rem; }
+.muted { color: #6b7280; }
